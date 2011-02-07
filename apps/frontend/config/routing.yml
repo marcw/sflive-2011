@@ -1,16 +1,11 @@
-# You can find more information about this file on the symfony website:
-# http://www.symfony-project.org/reference/1_4/en/10-Routing
-
-# default rules
 homepage:
   url:   /
-  param: { module: default, action: index }
+  param: { module: foobar, action: firstFragment }
 
-# generic rules
-# please, remove them by adding more specific rules
-default_index:
-  url:   /:module
-  param: { action: index }
+second:
+  url:  /esi/second-fragment
+  param: { module: foobar, action: secondFragment }
 
-default:
-  url:   /:module/:action/*
+third:
+  url: /esi/third-fragment
+  param: { module: foobar, action: thirdFragment }
