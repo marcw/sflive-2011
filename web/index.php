@@ -1,7 +1,12 @@
 <?php
 
+use Sensio\EsiCacheKernel;
+use Sensio\SymfonyWrapperKernel;
+use Symfony\Component\HttpFoundation\Request;
 
-require_once(dirname(__FILE__).'/../config/ProjectConfiguration.class.php');
+$projectPath = realpath(__DIR__.'/..');
 
-$configuration = ProjectConfiguration::getApplicationConfiguration('frontend', 'prod', false);
-sfContext::createInstance($configuration)->dispatch();
+require_once($projectPath.'/src/autoload.php');
+
+$kernel = new EsiCacheKernel(new SymfonyWrapperKernel($projectPath, 'frontend', 'prod', false), $projectPath);
+$kernel->handle(Request::createfromGlobals())->send();
