@@ -32,4 +32,4 @@ all:
     escaping_method:        ESC_SPECIALCHARS
 
     # Enable the database manager
-    use_database:           true
+    use_database:           false
